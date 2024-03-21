@@ -23,8 +23,10 @@ export class HomeComponent implements OnInit {
       this.user.getData(this.binding).subscribe((data) => {
         this.users = data;
         console.log(this.users);
+        setTimeout(() => {
+          this.scrollDownToResults();
+        }, 500); 
       });
-
     }
   }
 
@@ -42,5 +44,12 @@ export class HomeComponent implements OnInit {
   isFavorite(movieId: string): boolean {
     const favorites = this.localStorageService.getItem('favorites') || [];
     return favorites.includes(movieId);
+  }
+
+  scrollDownToResults() {
+    const moviesContainer = document.querySelector('.movies-container');
+    if (moviesContainer) {
+      moviesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
