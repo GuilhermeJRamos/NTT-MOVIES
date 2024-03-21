@@ -42,8 +42,7 @@ testem.log
 Thumbs.db
 
 # dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+!/src/environments/environment.ts
+!/src/environments/environment.prod.ts
+
+
