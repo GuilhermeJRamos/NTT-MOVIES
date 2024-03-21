@@ -41,8 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# dotenv environment variable files
-/src/environments/environment.ts
-/src/environments/environment.prod.ts
+# Ignore environment files
+src/environments/*.ts
 
 
