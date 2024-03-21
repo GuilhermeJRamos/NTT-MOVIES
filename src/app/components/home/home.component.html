@@ -1,0 +1,27 @@
+<header class="container-fluid background-banner" style="background-color: rgba(255, 255, 255, 0.05);">
+    <div class="d-flex justify-content-between">
+        <div class="ms-5 mt-3 logo-custom"><img class="logo" src="../../../assets/logo.png" width="132" height="39"
+                alt="Imagens"></div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center home-content">
+        <div class="home text-white text-center">
+            <h1 class="heading-custom">Filmes ilimitados, programas de TV <br> <br> e muito mais.</h1>
+            <h4 class="text-center mt-3">Assista em qualquer lugar. Cancele a qualquer momento.</h4>
+            <div class="input-group mt-3 mb-3 input-div">
+                <input id="channel" type="text" class="form-control p-3" placeholder="Digite o nome ou a data seu filme aqui!"
+                    aria-label="Nome do destinatário" aria-describedby="basic-addon2" [(ngModel)]="binding" />
+                <button class="btn btn-danger btn-lg" type="button" id="basic-addon2" (click)="getValue()">Buscar</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid text-center">
+    <h6 *ngIf="searchTerm && users?.Search?.length > 0" class="search-results mt-5" style="font-family: 'Nome da Sua Fonte', Arial, sans-serif; font-size: 24px; font-weight: bold;">Resultados para "{{searchTerm}}" :</h6>
+</div>
+
+<div class="container-fluid movies-container justify-content-center text-center" fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div class="movie-card-container mt-3 mb-2" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.3" *ngFor="let item of users?.Search">
+        <app-movie-card [movie]="item"></app-movie-card>
+    </div>
+</div>

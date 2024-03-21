@@ -1,0 +1,267 @@
+.navbar{
+    padding-left: 15px;
+    margin-bottom: 2px;
+    text-align: left;
+    justify-content:left;
+    color: white;
+    background-color: #329c8c;
+    border-bottom: 1px solid black;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.movie-link {
+  text-decoration: none;
+  color: inherit;  
+}
+
+.card-container-background {
+  background-color: gray;
+}
+
+.background-banner {
+  background-image: linear-gradient(
+      45deg,
+      rgba(51, 43, 43, 0.75),
+      rgba(20, 19, 20, 0.61)
+  ),
+  url(../../../assets/background-banner.jpg);
+  max-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.home-content {
+  height: 100vh;
+}
+
+.home-content h1 {
+  color: white;
+  font-size: 3.125rem;
+  font-weight: bold;
+  padding-left: 54px;
+}
+
+.home-content p {
+  font-size: 18px;
+}
+
+
+
+.button:hover {
+  cursor: pointer;
+}
+
+.netflix-content:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.arrow {
+  float: right;
+  border: 2px solid white;
+  padding: 8px 18px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.search{
+    margin: 2px 0 2px 12px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    margin-right: 10px; 
+}
+
+#basic-addon2:hover {
+  background-color: #be515c; /* Cor de fundo quando o mouse está sobre o botão */
+  border-color: #68000a; /* Cor da borda quando o mouse está sobre o botão */
+}
+
+.search-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-results {
+    margin-top: 10px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .background-banner {
+    background-image: linear-gradient(
+        45deg,
+        rgba(51, 43, 43, 0.75),
+        rgba(20, 19, 20, 0.61)
+      ),
+      url(../../../assets/background-banner.jpg);
+    max-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 100; 
+  }
+  
+  .home-content {
+    height: 100vh;
+  }
+  
+  .home-content h1 {
+    color: white;
+    font-size: 3.125rem;
+    font-weight: bold;
+    padding-left: 54px;
+  }
+  
+  .home-content p {
+    font-size: 18px;
+  }
+  
+
+  .button:hover {
+    cursor: pointer;
+  }
+  
+  .netflix-content:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  
+  .arrow {
+    float: right;
+    border: 2px solid white;
+    padding: 8px 18px;
+    border-radius: 50%;
+    font-size: 20px;
+  }
+  .arrow:hover {
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .logo-custom {
+      margin-left: 12px !important;
+    }
+    .background-banner .sticky-top div:nth-child(2){
+      margin-right: 10px !important;
+    }
+  
+    .home-content .heading-custom {
+      text-align: center;
+      padding-left: 0;
+      font-size: 2rem;
+    }
+  
+    .home-content p {
+      text-align: center;
+    }
+  
+    .home-content .input-div {
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .second-content img {
+      margin-bottom: 30px;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .second-content p,
+    .third-content p,
+    .forth-content p {
+      font-size: 15px !important;
+    }
+  
+    .second-content p,
+    h2 {
+      text-align: center;
+    }
+  
+    .second-content .row div:nth-child(2) {
+      margin-top: 0 !important;
+    }
+  
+    .third-content p,
+    h1 {
+      text-align: center;
+    }
+  
+    .third-content .row {
+      flex-direction: column-reverse;
+    }
+  
+    .third-content img {
+      width: 100%;
+      height: 100%;
+      margin-left: 0 !important;
+    }
+    .forth-content p,
+    .forth-content h1 {
+      text-align: center;
+      margin-left: 0 !important;
+    }
+  
+    .forth-content img {
+      width: 100%;
+      height: 100%;
+    }
+    
+  
+
+  
+
+  
+    ol, ul{
+      padding-left: 0 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .second-content .row div:nth-child(2),
+    .forth-content .row div:nth-child(2) {
+      text-align: center;
+    }
+    .third-content .netflix-content {
+      margin-left: 0;
+      text-align: center;
+    }
+ 
+  
+    .arrow {
+      padding: 18px 22px;
+    }
+  }

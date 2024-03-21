@@ -1,0 +1,75 @@
+.card-header{
+    background-color:white;
+    border:0;
+}
+
+.img-size{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card{
+    margin: 30px;
+    padding: 20px;
+    box-shadow: 0.5px 1px 15px ;  
+ }
+
+.card-details{
+    margin: 15px;
+    width: 60%;
+}
+
+.rating{
+    display:flex ; 
+}
+
+.red-heart {
+    color: red;
+}
+
+
+h3{
+    margin-right: 3%; 
+}
+
+
+.title{
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+.copyright{
+    text-align: center;
+    margin-top: 6%;
+}
+
+.card-set{
+    display: flex;
+}
+
+.card-data{
+    color: grey;
+    font-weight:bold;
+}
+
+
+
+
+.btn:hover{
+    background-color: rgb(228, 20, 20);
+    border:2px solid rgb(255, 255, 255);
+    color:rgb(255, 255, 255);
+}
+
+.big-heart {
+    font-size: 24px; 
+}
+
+
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+    }
+}
+

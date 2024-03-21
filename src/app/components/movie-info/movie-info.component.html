@@ -1,0 +1,31 @@
+<app-home></app-home>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="card flex-row flex-wrap">
+    <div class="card-header">
+        <img class="img-size" src="{{data?.Poster}}">
+    </div>
+    <div class="card-details">
+        <div class="rating">
+            <p class="card-data title">{{data?.Metascore}}</p>
+            <h4>{{data?.Title}} ({{data?.Year}})</h4>
+        </div>
+        <div class="rating">
+            <h3>{{data?.imdbRating}}</h3>
+            <p class="card-data">{{data?.Rated}} | {{data?.Runtime}} | {{data?.Genre}} | {{data?.Language}} | {{data?.Released}} ({{data?.Country}})</p>
+        </div>
+        <div class="card-set"><p class="title">Prêmios:</p><p>{{data?.Awards}}</p></div>
+        <div class="card-set"><p class="title">Sinopse:</p><p>{{data?.Plot}}</p></div>
+        <div class="card-set"><p class="title">Diretor:</p><p>{{data?.Director}}</p></div>
+        <div class="card-set"><p class="title">Escritor:</p><p>{{data?.Writer}}</p></div>
+        <div class="card-set"><p class="title">Atores:</p><p>{{data?.Actors}}</p></div>
+        <div class="card-set"><p class="title">Produção:</p><p>{{data?.Production}}</p></div>
+        <div class="button-container">
+            <button class="btn btn-danger" routerLink=""><i class="bi bi-film"></i> Veja Outros Filmes</button>
+            <button style="background: none; border: none; margin-left: 20px; margin-top: 40px;" (click)="toggleFavorite()">
+                <i [ngClass]="isFavorite ? 'bi bi-heart-fill red-heart big-heart' : 'bi bi-heart big-heart'"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
