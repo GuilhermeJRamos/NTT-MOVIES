@@ -22,6 +22,8 @@
   background-color: gray;
 }
 
+
+
 .background-banner {
   background-image: linear-gradient(
       45deg,
@@ -34,6 +36,9 @@
   background-attachment: fixed;
 }
 
+.heart-button {
+  width: 120px; 
+}
 
 
 .home-content {
@@ -97,8 +102,8 @@
 }
 
 #basic-addon2:hover {
-  background-color: #be515c; /* Cor de fundo quando o mouse está sobre o botão */
-  border-color: #68000a; /* Cor da borda quando o mouse está sobre o botão */
+  background-color: #be515c; 
+  border-color: #68000a; 
 }
 
 .search-btn {

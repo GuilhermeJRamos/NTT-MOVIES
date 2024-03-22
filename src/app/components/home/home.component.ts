@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   users: any;
   binding!: string;
   searchTerm: string = '';
+  showOnlyFavorites: boolean = false;
+  showFavoritesButton: boolean = false;
 
   constructor(private user: OmdbService, private localStorageService: LocalStorageService) { }
 
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
       this.user.getData(this.binding).subscribe((data) => {
         this.users = data;
         console.log(this.users);
+        this.showFavoritesButton = true; 
         setTimeout(() => {
           this.scrollDownToResults();
         }, 500); 
@@ -51,5 +54,11 @@ export class HomeComponent implements OnInit {
     if (moviesContainer) {
       moviesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  showFavorites(): void {
+    this.showOnlyFavorites = true;
+    const favorites = this.localStorageService.getItem('favorites') || [];
+    this.users = { Search: this.users.Search.filter((item: any) => favorites.includes(item.imdbID)) };
   }
 }
