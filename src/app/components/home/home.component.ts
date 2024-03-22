@@ -33,15 +33,29 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  toggleFavorite(movieId: string): void {
-    const favorites = this.localStorageService.getItem('favorites') || [];
-    const index = favorites.indexOf(movieId);
-    if (index === -1) {
-      favorites.push(movieId);
+  toggleFavorites(): void {
+    if (this.showOnlyFavorites) {
+        this.showOnlyFavorites = false;
+        this.showFavoritesButton = true;
+        this.searchTerm = '';
+        this.getData();
     } else {
-      favorites.splice(index, 1);
+        this.showOnlyFavorites = true;
+        const favorites = this.localStorageService.getItem('favorites') || [];
+        this.users = { Search: this.users.Search.filter((item: any) => favorites.includes(item.imdbID)) };
+        this.showFavoritesButton = true;
     }
-    this.localStorageService.setItem('favorites', favorites);
+}
+
+
+  getData() {
+    this.user.getData(this.binding).subscribe((data) => {
+      this.users = data;
+      console.log(this.users);
+      setTimeout(() => {
+        this.scrollDownToResults();
+      }, 500); 
+    });
   }
 
   isFavorite(movieId: string): boolean {
@@ -54,11 +68,5 @@ export class HomeComponent implements OnInit {
     if (moviesContainer) {
       moviesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
-
-  showFavorites(): void {
-    this.showOnlyFavorites = true;
-    const favorites = this.localStorageService.getItem('favorites') || [];
-    this.users = { Search: this.users.Search.filter((item: any) => favorites.includes(item.imdbID)) };
   }
 }

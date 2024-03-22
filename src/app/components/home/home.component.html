@@ -24,15 +24,16 @@
 
 
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="margin-top: 40px;" *ngIf="showFavoritesButton">
     <h6 *ngIf="searchTerm && users?.Search?.length > 0" class="search-results mt-5" style="font-family: 'Nome da Sua Fonte', Arial, sans-serif; font-size: 24px; font-weight: bold;">Resultados para "{{searchTerm}}" :</h6>
-    <div class="d-flex justify-content-center align-items-center mt-3" *ngIf="showFavoritesButton">
-        <span class="me-2"  style="font-weight: bold;">Mostrar Favoritos:</span>
-        <button *ngIf="showFavoritesButton" class="btn btn-danger mt-3 mb-3 heart-button" (click)="showFavorites()">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <span class="me-2" style="font-weight: bold;">{{ showOnlyFavorites ? 'Remover Favoritos' : 'Mostrar Favoritos' }}:</span>
+        <button class="btn btn-danger mt-3 mb-3 heart-button" (click)="toggleFavorites()">
             <i class="bi bi-heart-fill"></i>
         </button>
     </div>
 </div>
+
 
 
 <div class="container-fluid movies-container justify-content-center text-center" fxLayout="row wrap" fxLayoutGap="20px grid">
