@@ -1,7 +1,6 @@
 <div>
-    <h2>Favoritos</h2>
-    <button (click)="toggleFavorite()">
-      <i [ngClass]="isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
-    </button>
-  </div>
-  
+  <h2>Favoritos</h2>
+  <button (click)="toggleFavorite()">
+    <i [ngClass]="(isFavorite$ | async) ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
+  </button>
+</div>

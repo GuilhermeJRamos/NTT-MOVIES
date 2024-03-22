@@ -14,6 +14,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { FooterComponent } from './components/footer/footer.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     FormsModule,
     MatCardModule,
     FlexModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forRoot({}, {})
     
   ],
   providers: [],

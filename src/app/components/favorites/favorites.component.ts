@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from '../../services/local-storage.service';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { addFavorite, removeFavorite } from '../../../states/states-favorites/favorite.actions';
 
 @Component({
   selector: 'app-favorites',
@@ -7,22 +9,22 @@ import { LocalStorageService } from '../../services/local-storage.service';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
+  isFavorite$: Observable<boolean>;
 
-  isFavorite: boolean = false;
-
-  constructor(private localStorageService: LocalStorageService) { }
+  constructor(private store: Store<{ favorite: boolean }>) {
+    this.isFavorite$ = this.store.pipe(select('favorite'));
+  }
 
   ngOnInit(): void {
-    this.isFavorite = this.localStorageService.getItem('favorite') !== null;
   }
 
   toggleFavorite(): void {
-    this.isFavorite = !this.isFavorite;
-    if (this.isFavorite) {
-      this.localStorageService.setItem('favorite', true);
-    } else {
-      this.localStorageService.removeItem('favorite');
-    }
+    this.isFavorite$.subscribe(isFavorite => {
+      if (isFavorite) {
+        this.store.dispatch(removeFavorite());
+      } else {
+        this.store.dispatch(addFavorite());
+      }
+    });
   }
-
 }
