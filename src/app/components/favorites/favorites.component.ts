@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { addFavorite, removeFavorite } from '../../../states/states-favorites/favorite.actions';
+import { addFavorite, removeFavorite } from './states/favorite.actions';
 
 @Component({
   selector: 'app-favorites',
