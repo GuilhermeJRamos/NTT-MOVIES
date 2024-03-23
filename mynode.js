@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const successColor = '\x1b[32m%s\x1b[0m';
 const checkSign = '\u{2705}';
-const dotenv = require('dotenv').config({path: 'src/.env'}); ;
+const dotenv = require('dotenv').config({path: '.env'}); ;
 
 const envFile = `export const environment = {
     API_URL: '${process.env.API_URL}',
