@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OmdbService } from '../../services/omdb.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { MovieDetails } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-movie-info',
@@ -10,7 +11,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
 })
 export class MovieInfoComponent implements OnInit {
   id: any;
-  data: any;
+  data: MovieDetails | undefined;
   isFavorite: boolean = false;
 
   constructor(private route: ActivatedRoute, private omdbService: OmdbService, private localStorageService: LocalStorageService) { }
