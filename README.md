@@ -47,14 +47,20 @@ Após esses passos, o projeto estará disponível em http://localhost:4200/ no s
 
 Aqui estão algumas capturas de tela do projeto:
 
-- Página Inicial:
-  ![Página Inicial](./assets/home-img-README.png)
+Página Inicial:
+![Página Inicial](./src/assets/home-img-README.png/)
 
-- Listagem de Filmes:
-  ![Listagem de Filmes](./assets/movie-list-README.png)
 
-- Detalhes do Filme:
-  ![Detalhes do Filme](./assets/movie-detail-README.png)
+Listagem de Filmes:
+![Listagem de Filmes](./src/assets/movie-list-README.png/)
 
-- Aba de Favoritos:
-  ![Aba de Favoritos](./assets/favorites-README.png)
+
+
+Detalhes do Filme:
+![Detalhes do Filme](./src/assets/movie-detail-README.png/)
+
+Aba de Favoritos:
+![Aba de Favoritos](./src/assets/favorites-README.png/)
+
+
+
