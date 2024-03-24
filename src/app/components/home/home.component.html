@@ -11,9 +11,10 @@
                 <input id="channel" type="text" class="form-control p-3" placeholder="Digite o nome ou a data do seu filme aqui!"
        aria-label="Nome do destinatário" aria-describedby="basic-addon2" [(ngModel)]="binding" />
 <button class="btn btn-danger btn-lg" type="button" id="basic-addon2" (click)="getValue()" 
-        [ngClass]="{'disabled-button': !binding, 'active-button': binding}">
+        [ngClass]="{'disabled-button': !binding, 'active-button': binding}" [disabled]="!binding">
     Buscar
 </button>
+
 
          
             </div>

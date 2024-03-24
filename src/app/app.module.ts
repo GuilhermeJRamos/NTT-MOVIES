@@ -14,6 +14,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { FooterComponent } from './components/footer/footer.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

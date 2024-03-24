@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { OmdbService } from '../../services/omdb.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   showOnlyFavorites: boolean = false;
   showFavoritesButton: boolean = false;
 
-  constructor(private user: OmdbService, private localStorageService: LocalStorageService, private renderer: Renderer2) { }
+  constructor(private user: OmdbService, private localStorageService: LocalStorageService, private renderer: Renderer2,  private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -30,11 +31,22 @@ export class HomeComponent implements OnInit {
                 setTimeout(() => {
                     this.scrollDownToResults();
                 }, 500);
+                this.openSnackBar('Redirecionando aos filmes...');
             } else {
                 this.showFavoritesButton = false;
+                this.openSnackBar('Não existem filmes com o termo pesquisado');
             }
         });
     }
+  }
+
+openSnackBar(message: string) {
+  this.snackBar.open(message, 'Fechar', {
+    duration: 1500, 
+    horizontalPosition: 'center',
+    verticalPosition: 'top',
+    panelClass: ['custom-toast']
+  });
 }
 
   toggleFavorites(): void {
@@ -43,11 +55,14 @@ export class HomeComponent implements OnInit {
         this.showFavoritesButton = true;
         this.searchTerm = '';
         this.getData();
+        this.openSnackBar('Mostrando todos os filmes');
     } else {
         this.showOnlyFavorites = true;
         const favorites = this.localStorageService.getItem('favorites') || [];
         this.users = { Search: this.users.Search.filter((item: any) => favorites.includes(item.imdbID)) };
         this.showFavoritesButton = true;
+        this.openSnackBar('Mostrando apenas os favoritos');
+
     }
 }
 
