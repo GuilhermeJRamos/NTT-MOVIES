@@ -25,6 +25,7 @@ Dentro da pasta "src", crie um arquivo chamado ".env" com o seguinte conteúdo:
 
 
 API_URL=https://www.omdbapi.com
+
 API_KEY=INSIRA_AQUI_SUA_CHAVE_API
 
 
