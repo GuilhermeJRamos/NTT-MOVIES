@@ -3,14 +3,14 @@
         <img class="card-image" src="{{movie?.Poster}}" alt="Pôster de {{movie?.Title}}" />
     </a>
     <div class="card-details">
-        <h3 class="card-title">{{movie?.Title}}</h3>
+        <h3 class="card-title">{{movie?.Title}} <span class="type-badge">{{movie?.Type | titlecase}}</span></h3>
         <p class="card-subtitle">{{movie?.Year}}</p>
-        <p class="card-subtitle"> {{movie?.Genre}}</p>
+        <p class="card-subtitle">{{movie?.Genre}}</p>
         <div class="button-container">
             <button class="btn btn-danger" [routerLink]="['/movie-info/', movie?.imdbID]">
                 <i class="bi bi-film"></i> Detalhes do Filme
             </button>
-            <button style="background: none; border: none; margin-top: 10px;" (click)="toggleFavorite()">
+            <button style="background: none; border: none;" (click)="toggleFavorite()">
                 <i [ngClass]="isFavorite() ? 'bi bi-heart-fill red-heart big-heart' : 'bi bi-heart big-heart'"></i>
             </button>
         </div>
