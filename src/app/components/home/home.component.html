@@ -38,7 +38,7 @@
 
 
 <div class="container-fluid movies-container justify-content-center text-center" fxLayout="row wrap" fxLayoutGap="20px grid">
-    <div class="movie-card-container mt-3 mb-2" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.3" *ngFor="let item of users?.Search">
+    <div class="movie-card-container mt-3 mb-2" [fxFlex]="isScreenExtraLarge ? '20%' : (isScreenLarge ? '25%' : '33.3%')" fxFlex.xs="100%" *ngFor="let item of users?.Search">
         <app-movie-card [movie]="item"></app-movie-card>
     </div>
 </div>
