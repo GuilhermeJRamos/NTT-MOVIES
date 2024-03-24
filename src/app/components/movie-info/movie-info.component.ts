@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OmdbService } from '../../services/omdb.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { MovieDetails } from 'src/app/models/interfaces';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-info',
@@ -14,7 +15,7 @@ export class MovieInfoComponent implements OnInit {
   data: MovieDetails | undefined;
   isFavorite: boolean = false;
 
-  constructor(private route: ActivatedRoute, private omdbService: OmdbService, private localStorageService: LocalStorageService) { }
+  constructor(private route: ActivatedRoute, private omdbService: OmdbService, private localStorageService: LocalStorageService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['imdbID'];
@@ -39,9 +40,20 @@ export class MovieInfoComponent implements OnInit {
     const index = favorites.indexOf(this.id);
     if (index === -1) {
       favorites.push(this.id);
+      this.openSnackBar('Filme adicionado aos favoritos');
     } else {
       favorites.splice(index, 1);
+      this.openSnackBar('Filme removido dos Favoritos');
     }
     this.localStorageService.setItem('favorites', favorites);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Fechar', {
+      duration: 1000, 
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: ['custom-toast']
+    });
   }
 }
