@@ -49,10 +49,10 @@ export class HomeComponent implements OnInit {
           setTimeout(() => {
             this.scrollDownToResults();
           }, 500);
-          this.openSnackBar('Redirecionando aos filmes...');
+          this.openSnackBar('Redirecionando aos filmes e séries...');
         } else {
           this.showFavoritesButton = false;
-          this.openSnackBar('Não existem filmes com o termo pesquisado');
+          this.openSnackBar('Não existem filmes ou séries com o termo pesquisado');
         }
       });
     }

@@ -20,15 +20,15 @@ export class MovieCardComponent {
     const index = favorites.indexOf(this.movie?.imdbID);
     if (index === -1) {
       favorites.push(this.movie?.imdbID);
-      this.openSnackBar('Filme adicionado aos favoritos');
+      this.openSnackBar(`${this.movie?.Title} foi adicionado aos favoritos`);
     } else {
       favorites.splice(index, 1);
-      this.openSnackBar('Filme removido dos Favoritos');
-
+      this.openSnackBar(`${this.movie?.Title} foi removido dos favoritos`);
     }
     this.localStorageService.setItem('favorites', favorites);
-
   }
+  
+  
 
   isFavorite(): boolean {
     const favorites = this.localStorageService.getItem('favorites') || [];

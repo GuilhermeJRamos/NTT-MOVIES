@@ -40,10 +40,10 @@ export class MovieInfoComponent implements OnInit {
     const index = favorites.indexOf(this.id);
     if (index === -1) {
       favorites.push(this.id);
-      this.openSnackBar('Filme adicionado aos favoritos');
+      this.openSnackBar(`${this.data?.Title} foi adicionado aos favoritos`);
     } else {
       favorites.splice(index, 1);
-      this.openSnackBar('Filme removido dos Favoritos');
+      this.openSnackBar(`${this.data?.Title} foi removido dos favoritos`);
     }
     this.localStorageService.setItem('favorites', favorites);
   }
