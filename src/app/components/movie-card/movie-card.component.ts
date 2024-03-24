@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { Movie } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,7 +8,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  @Input() movie: any;
+  @Input() movie: Movie | undefined;
   @Input() searchTerm: string = '';
 
   constructor(private localStorageService: LocalStorageService) { }
@@ -15,9 +16,9 @@ export class MovieCardComponent {
   
   toggleFavorite(): void {
     const favorites = this.localStorageService.getItem('favorites') || [];
-    const index = favorites.indexOf(this.movie.imdbID);
+    const index = favorites.indexOf(this.movie?.imdbID);
     if (index === -1) {
-      favorites.push(this.movie.imdbID);
+      favorites.push(this.movie?.imdbID);
     } else {
       favorites.splice(index, 1);
     }
@@ -26,6 +27,6 @@ export class MovieCardComponent {
 
   isFavorite(): boolean {
     const favorites = this.localStorageService.getItem('favorites') || [];
-    return favorites.includes(this.movie.imdbID);
+    return favorites.includes(this.movie?.imdbID);
   }
 }

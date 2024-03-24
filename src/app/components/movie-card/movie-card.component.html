@@ -1,13 +1,13 @@
 <div *ngIf="movie" class="movie-card">
     <a class="movie-link">
-        <img class="card-image" src="{{movie?.Poster}}" alt="Pôster de {{movie?.Title}}" />
+        <img class="card-image" src="{{movie.Poster}}" alt="Pôster de {{movie.Title}}" />
     </a>
     <div class="card-details">
-        <h3 class="card-title">{{movie?.Title}} <span class="type-badge">{{movie?.Type | titlecase}}</span></h3>
-        <p class="card-subtitle">{{movie?.Year}}</p>
-        <p class="card-subtitle">{{movie?.Genre}}</p>
+        <h3 class="card-title">{{movie.Title}} <span class="type-badge">{{movie.Type | titlecase}}</span></h3>
+        <p class="card-subtitle">{{movie.Year}}</p>
+        <p class="card-subtitle">{{movie.Genre}}</p>
         <div class="button-container">
-            <button class="btn btn-danger" [routerLink]="['/movie-info/', movie?.imdbID]">
+            <button class="btn btn-danger" [routerLink]="['/movie-info/', movie.imdbID]">
                 <i class="bi bi-film"></i> Detalhes do Filme
             </button>
             <button style="background: none; border: none;" (click)="toggleFavorite()">
