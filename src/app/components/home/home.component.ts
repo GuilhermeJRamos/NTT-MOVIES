@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { OmdbService } from '../../services/omdb.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 
@@ -14,24 +14,28 @@ export class HomeComponent implements OnInit {
   showOnlyFavorites: boolean = false;
   showFavoritesButton: boolean = false;
 
-  constructor(private user: OmdbService, private localStorageService: LocalStorageService) { }
+  constructor(private user: OmdbService, private localStorageService: LocalStorageService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
   }
 
   getValue() {
     if (this.binding !== undefined) {
-      this.searchTerm = this.binding; 
-      this.user.getData(this.binding).subscribe((data) => {
-        this.users = data;
-        console.log(this.users);
-        this.showFavoritesButton = true; 
-        setTimeout(() => {
-          this.scrollDownToResults();
-        }, 500); 
-      });
+        this.searchTerm = this.binding; 
+        this.user.getData(this.binding).subscribe((data) => {
+            this.users = data;
+            console.log(this.users);
+            if (this.users?.Search && this.users.Search.length > 0) {
+                this.showFavoritesButton = true;
+                setTimeout(() => {
+                    this.scrollDownToResults();
+                }, 500);
+            } else {
+                this.showFavoritesButton = false;
+            }
+        });
     }
-  }
+}
 
   toggleFavorites(): void {
     if (this.showOnlyFavorites) {
