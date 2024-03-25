@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OmdbService } from '../../services/omdb.service';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { MovieDetails } from 'src/app/models/interfaces';
+import { OmdbService } from '../../shared/services/omdb.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { MovieDetails } from 'src/app/shared/models/interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

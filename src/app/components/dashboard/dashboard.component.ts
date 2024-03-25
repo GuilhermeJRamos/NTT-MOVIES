@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OmdbService } from '../../services/omdb.service';
+import { OmdbService } from '../../shared/services/omdb.service';
 
 @Component({
   selector: 'app-dashboard',

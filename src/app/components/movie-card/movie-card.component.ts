@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { Movie } from 'src/app/models/interfaces';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { Movie } from 'src/app/shared/models/interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

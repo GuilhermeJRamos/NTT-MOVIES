@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { OmdbService } from '../../services/omdb.service';
+import { OmdbService } from '../../shared/services/omdb.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LocalStorageService } from '../../services/local-storage.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
